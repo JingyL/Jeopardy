@@ -148,7 +148,7 @@ function makeBoard(height, width) {
 async function makeHtmlBoard() {
     let num = 0;
     let trTop = document.createElement('tr');
-    trTop.setAttribute('id', num);
+    trTop.setAttribute('id', top);
     for (let i = 0; i < data.length; i++) {
         let tdTop = document.createElement('td');
         tdTop.innerText = data[i].title;
@@ -195,3 +195,12 @@ $('#board').on('click', async function (e) {
 /** On page load, add event handler for clicking clues */
 
 // TODO
+
+async function start() {
+    await setupAndStart();
+    $('#board').empty();
+    makeBoard(HEIGHT, WIDTH);
+    makeHtmlBoard();
+}
+
+start(); 
